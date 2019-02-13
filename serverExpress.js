@@ -88,7 +88,7 @@ app.use(cors());
 
 app.get('/', (req, res)=> {
     //how to do multiple send ???
-    res.send(db.users);
+    res.send('TESTING TESTING');
     //res.send(db.login);
 })
 
