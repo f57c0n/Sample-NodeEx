@@ -1,7 +1,9 @@
 const Clarifai = require('clarifai');
 
+//Store sensitive information or keys in Heroku and use ENV variables
+//https://dashboard.heroku.com/apps/peaceful-earth-94315/settings
 const app = new Clarifai.App({
-    apiKey: '8bf7c0a62cd94a5c8b667a30546645f4'
+    apiKey: process.env.API_CLARIFAI
 });
 
 const handleAPICall = (req, res) => {

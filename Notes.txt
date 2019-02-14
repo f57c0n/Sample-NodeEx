@@ -30,7 +30,10 @@ DATA TYPE:
 
 
 HEROKU NOTES:
-remember to git push heroku master
+heroku git:remote -a appName  => appName in Heroku
+
+//remember to git add/commit to make sure git is pushed to Heroku
+//remember to git push heroku master
 git remote -v => access heroku git connected to deployment
 
 heroku open => to launch website
