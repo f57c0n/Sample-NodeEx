@@ -1,46 +1,29 @@
-> brew update
-> brew doctor => check everything is there
-> brew install postgresql
-> brew services start postgresql => stop to stop it
-
-connect to DB
->psql 'filename'
-
-SQL COMMANDS - the same as Oracle
-
-> createdb 'filename'
-
-CREATE TABLE tablename (col datatype, col2 datatype, etc);
-INSERT INTO tablename (col, col2, etc) VALUES (val, val2, etc);
-ALTER TABLE tablename ADD col datatype;
-UPDATE tablename
-  SET col = value
-  WHERE COL = value
-
-SQL FUNCTIONS:
-  SELECT AVG(score) from users;
-  SELECT SUM(AGE) from users;
-  SELECT COUNT(name) from users;
-
-DATA TYPE:
-  NUMERIC -> serial => auto incrementing integer value
-
-\d ->shows DB Schema
-\q ->exit and back to terminal
-
 
 HEROKU NOTES:
-heroku git:remote -a appName  => appName in Heroku
+//to install
+brew install heroku/brew/heroku
 
-//remember to git add/commit to make sure git is pushed to Heroku
-//remember to git push heroku master
+Creating BACK-END through CLI:
+//go to your working directory where your App's source files are 
+heroku create   => this will give you Heroku's URL
+
 git remote -v => access heroku git connected to deployment
+//remember to git add/commit to make sure git is pushed to Heroku
+
+//remember to do this to deploy
+git push heroku master
+
+heroku logs --tail  => see logs
+heroku config
+
+//NOTE that HEROKU has its own port, so make sure to change the port in your code to 'process.env.PORT'
+//ALSO, make sure that all your fetch URL is changed to the actual URL that heroku hosts the app 
+
 
 heroku open => to launch website
-heroku logs --tail  => see logs
-heroku addons => add DB from 
 
-heroku config
+DATABASE:  SET-UP IN HEROKU WEBSITE AND FOLLOW INSTRUCTIONS
+heroku addons => add DB from 
 
 heroku pg:info => DB info
 heroku pg:psql => access heroku DB
@@ -48,3 +31,46 @@ heroku pg:psql => access heroku DB
 psql:
 \d => view tables
 \q => quit
+
+
+FRONT END:
+heroku login => to login to heroku and get credentials to use CLI
+heroku git:remote -a appName  
+=> appName in Heroku to login to that specific app
+=> use to rename any existing app as well if current doesn't show on git remote -v
+
+TO CHECK ENVIRONMENT VARIABLES:  GO TO APP IN HEROKU, SETTINGS AND 'REVEAL CONFIG VARS'
+
+-----------------------------------------------------------------------------------
+> brew update
+> brew doctor => check everything is there
+> brew install postgresql
+> brew services start postgresql => stop to stop it
+
+-----------------------------------------------------------------------------------
+connect to DB
+>psql 'filename'
+
+SQL COMMANDS - the same as Oracle
+
+> createdb 'filename'
+
+ie)
+    CREATE TABLE tablename (col datatype, col2 datatype, etc);
+    INSERT INTO tablename (col, col2, etc) VALUES (val, val2, etc);
+    ALTER TABLE tablename ADD col datatype;
+    UPDATE tablename
+      SET col = value
+      WHERE COL = value
+
+    SQL FUNCTIONS:
+      SELECT AVG(score) from users;
+      SELECT SUM(AGE) from users;
+      SELECT COUNT(name) from users;
+
+DATA TYPE:
+  NUMERIC -> serial => auto incrementing integer value
+
+\d ->shows DB Schema
+\q ->exit and back to terminal
+
