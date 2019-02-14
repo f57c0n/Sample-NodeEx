@@ -1,0 +1,47 @@
+> brew update
+> brew doctor => check everything is there
+> brew install postgresql
+> brew services start postgresql => stop to stop it
+
+connect to DB
+>psql 'filename'
+
+SQL COMMANDS - the same as Oracle
+
+> createdb 'filename'
+
+CREATE TABLE tablename (col datatype, col2 datatype, etc);
+INSERT INTO tablename (col, col2, etc) VALUES (val, val2, etc);
+ALTER TABLE tablename ADD col datatype;
+UPDATE tablename
+  SET col = value
+  WHERE COL = value
+
+SQL FUNCTIONS:
+  SELECT AVG(score) from users;
+  SELECT SUM(AGE) from users;
+  SELECT COUNT(name) from users;
+
+DATA TYPE:
+  NUMERIC -> serial => auto incrementing integer value
+
+\d ->shows DB Schema
+\q ->exit and back to terminal
+
+
+HEROKU NOTES:
+remember to git push heroku master
+git remote -v => access heroku git connected to deployment
+
+heroku open => to launch website
+heroku logs --tail  => see logs
+heroku addons => add DB from 
+
+heroku config
+
+heroku pg:info => DB info
+heroku pg:psql => access heroku DB
+
+psql:
+\d => view tables
+\q => quit
