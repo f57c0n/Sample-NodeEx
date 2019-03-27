@@ -1,3 +1,6 @@
+//FRONT-END IS:  Sample-ReAct
+//This is BACK-END portion of the simple App
+
 //npm install express
 const express = require('express');
 //npm install body-parser => to use req.body, req.params, etc ...
