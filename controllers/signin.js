@@ -1,10 +1,11 @@
 
 const handleSignin = (req, res, pgdb, bcrypt) => {
-//or below to match the other option of calling from server
-// const handleSignin = (pgdb, bcrypt) => (req, res) => {
+//or below syntax to match the other option of calling from server
+//const handleSignin = (pgdb, bcrypt) => (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
-        return res.status(400).json('Incorrect Form Submission') // don't forget return so that it can exit from here, else it continues down
+        return res.status(400).json('Incorrect Form Submission') 
+        // don't forget return so that it can exit from here, else it continues down
     }
     pgdb.select('email', 'hash').from('login')
         .where('email', '=', req.body.email)
